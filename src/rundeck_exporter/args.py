@@ -59,7 +59,7 @@ class RundeckExporterArgs:
         "--ssl",
         help=f"Host enable ssl",
         metavar="RUNDECK_SSL",
-        type=int,
+        action="store_true",
     )
 
     parser.add_argument(
