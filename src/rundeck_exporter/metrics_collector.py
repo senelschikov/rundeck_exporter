@@ -399,6 +399,7 @@ class RundeckMetricsCollector:
                                   certfile=self.args.ssl.cert, keyfile=self.args.ssl.key)
             else:
                 start_http_server(self.args.port, addr=self.args.host, registry=REGISTRY)
+
             while True:
                 sleep(1)
         except OSError as os_error:
