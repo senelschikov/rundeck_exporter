@@ -56,6 +56,25 @@ class RundeckExporterArgs:
     )
 
     parser.add_argument(
+        "--ssl",
+        help=f"Host enable ssl",
+        metavar="RUNDECK_SSL",
+        type=int,
+    )
+
+    parser.add_argument(
+        "--ssl.cert",
+        help=f"Host ssl private certificate.",
+        metavar="RUNDECK_SSL_CERT",
+    )
+
+    parser.add_argument(
+        "--ssl.key",
+        help=f"Host ssl private key.",
+        metavar="RUNDECK_SSL_KEY",
+    )
+
+    parser.add_argument(
         "--no_checks_in_passive_mode",
         dest="no_checks_in_passive_mode",
         help="The rundeck_exporter will not perform any checks while the Rundeck host is in passive execution mode",
