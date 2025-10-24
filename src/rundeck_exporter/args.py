@@ -57,6 +57,7 @@ class RundeckExporterArgs:
 
     parser.add_argument(
         "--ssl",
+        dest="ssl_enabled",
         help=f"Host enable ssl",
         action="store_true",
         default=literal_eval(getenv("RUNDECK_SSL_ENABLED", "False").capitalize()),
@@ -64,6 +65,7 @@ class RundeckExporterArgs:
 
     parser.add_argument(
         "--ssl.cert",
+        dest="ssl_cert",
         help=f"Host ssl private certificate.",
         default=getenv("RUNDECK_SSL_CERT"),
         metavar="RUNDECK_SSL_CERT",
@@ -71,6 +73,7 @@ class RundeckExporterArgs:
 
     parser.add_argument(
         "--ssl.key",
+        dest="ssl_key",
         help=f"Host ssl private key.",
         default=getenv("RUNDECK_SSL_KEY"),
         metavar="RUNDECK_SSL_KEY",

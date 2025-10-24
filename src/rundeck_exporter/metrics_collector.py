@@ -394,9 +394,9 @@ class RundeckMetricsCollector:
             REGISTRY.register(self)
 
             logging.info(f"Rundeck exporter server started at {self.args.host}:{self.args.port}...")
-            if self.args.ssl:
+            if self.args.ssl_enabled:
                 start_http_server(self.args.port, addr=self.args.host, registry=REGISTRY,
-                                  certfile=self.args.ssl.cert, keyfile=self.args.ssl.key)
+                                  certfile=self.args.ssl_cert, keyfile=self.args.ssl_key)
             else:
                 start_http_server(self.args.port, addr=self.args.host, registry=REGISTRY)
 
