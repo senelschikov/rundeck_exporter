@@ -1,12 +1,17 @@
 [Unit]
-Description=Rundeck Exporter
+Description=Rundeck metrics exporter
+Wants=network-online.target
+After=network.target network-online.target
 
 [Service]
 User=rundeck_exporter
 EnvironmentFile=/etc/default/rundeck_exporter
-ExecStart=/usr/bin/rundeck_exporter $RUNDECK_OPTIONS
+ExecStart=/home/rundeck_exporter/.venv/bin/python /home/rundeck_exporter/.venv/bin/rundeck_exporter
 StandardOutput=append:/var/log/rundeck_exporter.log
 StandardError=append:/var/log/rundeck_exporter.log
+Restart=always
+RestartSec=10
+KillMode=process
 
 [Install]
 WantedBy=multi-user.target
